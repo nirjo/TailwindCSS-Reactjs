@@ -14,6 +14,9 @@ const userData = ({ users, loading }) => {
     return null; // or return an error message
   }
 
+  //  function deleteUser(id) {
+  //    axios.delete(`https:reqres.in/api/users/${id}`).then(loadUsers());
+  //  }
   const notify = () => toast.success("Successfully Deleted!");
 
   return (
@@ -74,7 +77,7 @@ const userData = ({ users, loading }) => {
                           className="border-b transition duration-300 ease-in-out hover:bg-neutral-100 dark:border-neutral-500 dark:hover:bg-neutral-600"
                         >
                           <td className="whitespace-nowrap px-6 py-4 font-bold">
-                            {index + 1}
+                            {index+1 }
                           </td>
                           <td className="whitespace-nowrap px-6 py-4 font-medium">
                             {data.email}
@@ -94,7 +97,7 @@ const userData = ({ users, loading }) => {
                           </td>
                           <td className="text-sm flex justify-between  items-center text-gray-900 font-bold px-6 py-4 space-x-4 whitespace-nowrap">
                             <Link
-                              to={`/users/${data.id}`}
+                              to={`/view/${data.id}`}
                               className="bg-teal-600 text-white px-6 py-2 rounded-lg"
                             >
                               VIew
@@ -107,6 +110,7 @@ const userData = ({ users, loading }) => {
                             </Link>
 
                             <Link
+                            
                               onClick={notify}
                               to={"#"}
                               className="bg-red-600 text-white px-6 py-2 rounded-lg"

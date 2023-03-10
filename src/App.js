@@ -4,7 +4,7 @@ import Home from './components/Home';
 import Navbar from './components/Navbar';
 import Add from './components/user/Add';
 import Edit from './components/user/Edit';
-import Users from './components/user/Users';
+import View from './components/user/View';
 
 function App() {
   return (
@@ -14,7 +14,7 @@ function App() {
 
          <Route path="/" element={ <Home/> } />
          <Route  path="/home" exact element={<Home/>} />
-        <Route  path="/users/:id" exact element={<Users/>} />
+        <Route  path="/view/:id" exact element={<View/>} />
         <Route  path="/add-user" exact element={<Add/>} />
         <Route  path="/edit-user/:id" exact element={<Edit/>} />
         </Routes> 

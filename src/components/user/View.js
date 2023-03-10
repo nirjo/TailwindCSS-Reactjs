@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 
 function Users() {
-  const { id } = useParams();
+   const { id } = useParams();
 
   const [user, setUser] = useState([]);
 
@@ -12,6 +12,10 @@ function Users() {
       setUser(res.data);
     });
   }, []);
+
+  // if (!Array.isArray(user)) {
+  //   return null; // or return an error message
+  // }
 
   console.log("userdata--------->",user);
   return (
@@ -23,9 +27,12 @@ function Users() {
         >
           Back To Home
         </Link>
-        {user && ( 
+        {user && (
           <div className="w-[700px] h-[200] px-6 py-4 flex shadow-xl rounded-xl justify-center items-center bg-teal-600 mt-16 border-teal-800 border-2">
             <div className="w-5/12 flex flex-col space-y-4">
+            <h2 className="text-white font-bold text-3xl border-black border-b-2">
+              ID
+              </h2>
               <h2 className="text-white font-bold text-3xl border-black border-b-2">
               Email
               </h2>
@@ -35,12 +42,17 @@ function Users() {
               <h2 className="text-white font-bold text-3xl border-black border-b-2">
                 lastname
               </h2>
-         { console.log("usersssssssssss",user) }
+         {/* { console.log("usersssssssssss",user) } */}
+         
             </div>
-            <div key ={id}className="w-7/12 flex flex-col space-y-4  ">
+           
+            <div className="w-7/12 flex flex-col space-y-4  ">
               <h2 className="text-teal-200 font-bold text-3xl border-black border-b-2">
-                {user.email}
-                { console.log("user---------->",user) }
+                { user.id}
+  
+              </h2>
+              <h2 className="text-teal-200 font-bold text-3xl border-black border-b-2">
+                { user.email}
   
               </h2>
               <h2 className="text-teal-200 font-bold text-3xl border-black border-b-2">
@@ -50,8 +62,10 @@ function Users() {
                 {user.last_name}
               </h2>
             </div>
+         
+
           </div>
-        )} 
+           )} 
       </div>
     </>
   );
