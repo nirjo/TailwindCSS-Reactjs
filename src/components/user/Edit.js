@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useForm } from "react-hook-form";
+import toast, { Toaster } from "react-hot-toast";
 
 function Add() {
   const {
@@ -40,9 +41,12 @@ function Add() {
   function Update(e) {
     e.preventDefault();
     axios
-      .put(`https://reqres.in/api/users?page=2/${id}`, data)
+      .put(`https://reqres.in/api/users?page=2`, data)
       .then(navigate("/"));
   }
+
+  const notify = () => toast.success(" USER is updated Successfully!");
+
   return (
     <div className="w-screen h-full flex flex-col justify-center items-center mt-16">
       <h2 className="text-2xl font-bold">User Details</h2>
@@ -93,10 +97,13 @@ function Add() {
         <button
           className="bg-teal-600 outline-none font-bold border text-white border-zinc-400 py-4 pl-4 mt-4"
           type="submit"
-          // onClick={Update}
+          onClick={notify}
+
+          onSubmit={Update}
         >
           UPDATE USER
         </button>
+        <Toaster />
       </form>
     </div>
   );

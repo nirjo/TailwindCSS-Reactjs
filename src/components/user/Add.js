@@ -37,7 +37,7 @@ function Add() {
     <div className="w-screen h-full flex flex-col justify-center items-center mt-16">
       <h2 className="text-2xl font-bold">ADD USER</h2>
 
-      <form onSubmit={handleSubmit(submitForm)}
+      <form onSubmit={handleSubmit(onSubmit)}
         className="w-[50%] h-full flex flex-col mt-2"
       >
         <input
